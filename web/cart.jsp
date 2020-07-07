@@ -55,7 +55,7 @@
         <br>
          <p>
             Back to <a href="search.jsp">Shopping</a> <br>
-            Back to <a href="home.jsp">Home</a> 
+            Back to <a href="index.jsp">Home</a> 
            
         </p>
         
