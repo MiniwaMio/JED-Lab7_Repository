@@ -48,7 +48,7 @@
               
                         
        
-        <form action="confirmcheckout" method="post">
+        <form action="card.jsp" method="post">
             <input type="submit" value="Checkout">
         </form>
         <br>
