@@ -46,12 +46,12 @@ public class CheckOutServlet extends HttpServlet {
                 int itemid = cart.getItemid();
                 int quantity = cart.getQuantity();
                 session.setAttribute("error", itemid);
+                
                 checkoutBean.createOrder(customerid, itemid, quantity);
             }
 
             session.setAttribute("cardmessage", message);
-            RequestDispatcher rd = request.getRequestDispatcher("/success.jsp");
-            rd.forward(request, response);
+            response.sendRedirect(this.getServletContext().getContextPath() + "/success.jsp");
 
         } else {
             System.out.println("Card is cannot work");

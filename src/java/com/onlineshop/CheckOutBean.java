@@ -27,13 +27,13 @@ public class CheckOutBean {
     public String validateCard(String creditcard) {
         //Validate Credit Card
         String message = "fail";
-        CreditCardValidator creditCardValidator;
-        creditCardValidator = CreditCardValidator.genericCreditCardValidator();
+//        CreditCardValidator creditCardValidator;
+//        creditCardValidator = CreditCardValidator.genericCreditCardValidator();
 
-        if (creditCardValidator.isValid(creditcard)) {
-            message = "success";
+        if (creditcard.length() < 16 || creditcard.length() > 16) {
             return message;
         } else {
+            message = "success";
             return message;
         }
 
@@ -105,8 +105,6 @@ public class CheckOutBean {
 
             if (connection != null) {
                 try {
-                    //Undo auto commit
-                    connection.setAutoCommit(true);
                     connection.close();
                 } catch (SQLException ex) {
                     try {
@@ -120,7 +118,6 @@ public class CheckOutBean {
                 }
 
             }
-
         }
 
     }
