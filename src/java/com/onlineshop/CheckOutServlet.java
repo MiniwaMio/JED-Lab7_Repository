@@ -36,29 +36,27 @@ public class CheckOutServlet extends HttpServlet {
         String cardNumber = request.getParameter("creditcard");
         String message;
 
-        if (checkoutBean.validateCard(cardNumber).equals("success")) {
+        if (checkoutBean.validateCard(cardNumber)) {
             System.out.println("Card is ok");
-            message = "Order is Successful";
             //Create New Order and insert (LOOP)
             List<Cart> cartOrders = (List<Cart>) session.getAttribute("cart");
 
             for (Cart cart : cartOrders) {
                 int itemid = cart.getItemid();
                 int quantity = cart.getQuantity();
-                session.setAttribute("error", itemid);
                 
                 checkoutBean.createOrder(customerid, itemid, quantity);
             }
 
-            session.setAttribute("cardmessage", message);
+            session.invalidate();
             response.sendRedirect(this.getServletContext().getContextPath() + "/success.jsp");
 
         } else {
             System.out.println("Card is cannot work");
             message = "Credit Card Number is invalid";
             session.setAttribute("cardmessage", message);
-           RequestDispatcher rd = request.getRequestDispatcher("/card.jsp");
-            rd.forward(request, response);
+           response.sendRedirect(this.getServletContext().getContextPath()+ "/card.jsp");
+            
         }
 
     }

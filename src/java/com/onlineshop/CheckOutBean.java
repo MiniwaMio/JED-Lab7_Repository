@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.sql.DataSource;
+import org.apache.commons.validator.routines.CreditCardValidator;
 //import org.apache.commons.validator.routines.CreditCardValidator;
 
 /**
@@ -24,17 +25,16 @@ public class CheckOutBean {
     @Resource(name = "jdbc/onlinegrocery")
     private DataSource dsOrder;
 
-    public String validateCard(String creditcard) {
+    public boolean validateCard(String creditcard) {
         //Validate Credit Card
-        String message = "fail";
-//        CreditCardValidator creditCardValidator;
-//        creditCardValidator = CreditCardValidator.genericCreditCardValidator();
 
-        if (creditcard.length() < 16 || creditcard.length() > 16) {
-            return message;
+        CreditCardValidator creditCardValidator;
+        creditCardValidator = new CreditCardValidator(CreditCardValidator.VISA + CreditCardValidator.MASTERCARD + CreditCardValidator.AMEX+CreditCardValidator.DINERS);
+
+        if (creditCardValidator.isValid(creditcard)) {
+            return true;
         } else {
-            message = "success";
-            return message;
+            return false;
         }
 
     }

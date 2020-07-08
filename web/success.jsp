@@ -12,7 +12,13 @@
         <title>Success</title>
     </head>
     <body>
-        <h1>Success</h1>
+        <h1>Success!</h1>
+        <h2>Thank you for shopping with us!</h2>
+        
+        <form method="post" action="index.html">
+           
+            <input type="submit" value="Go Home">
+        </form>
         
     </body>
 </html>
