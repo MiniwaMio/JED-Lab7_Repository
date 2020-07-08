@@ -146,8 +146,15 @@ public class RegistrationBean {
         return result;
     }
     public boolean isValidPostalCode(String postalC){
-        if(postalC.isEmpty() || postalC.length() > 6 || Integer.parseInt(postalC) < 0){
+        if(postalC.isEmpty() || postalC.length() != 6){
             result = false;
+        }else{
+            try{
+                Integer.parseInt(postalC);
+            }
+            catch(NumberFormatException e){
+                return false;
+            }
         }
         return result;
     }
