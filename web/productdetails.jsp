@@ -45,7 +45,7 @@
         <br>
         
         Return to <a href="search.jsp">Search</a> <br>
-        Return to <a href="home.jsp">Home</a>
+        Return to <a href="index.jsp">Home</a>
         
         
         <%

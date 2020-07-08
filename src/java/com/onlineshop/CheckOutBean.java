@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.sql.DataSource;
-import org.apache.commons.validator.routines.CreditCardValidator;
+//import org.apache.commons.validator.routines.CreditCardValidator;
 
 /**
  *
