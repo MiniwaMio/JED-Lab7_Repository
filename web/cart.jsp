@@ -43,7 +43,7 @@
                     %>
                 </table>
                  
-                        <p>Total Price: $<%=cartprice%></p>
+                        <p>Total Price: $<%=String.format("%.2f",cartprice)%></p>
                  
               
                         
