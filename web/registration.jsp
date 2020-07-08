@@ -13,6 +13,9 @@
     </head>
     <body>
         <h1>This is a online grocery registration page</h1>
+           <font color="red">
+                 <%=session.getAttribute("validationErr")==null?"":session.getAttribute("validationErr")%><br/>
+            </font>
         <form method="post" action="registration">
             Username : <input type="text" name="username" required><br>
             Email : <input type="email" name="email" required><br>
@@ -21,5 +24,9 @@
             Postal Code : <input type="text" name="postalCode" required><br>
             <input type="submit" value="register">
         </form>
+            <%
+            //Clear the message at the end of the JSP
+            session.setAttribute("message",null);
+        %>
     </body>
 </html>
