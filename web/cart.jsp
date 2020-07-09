@@ -26,6 +26,9 @@
                     for(Cart cart : CartDetails) { 
                        
                          cartprice += cart.gettotalprice();
+                         
+                         
+                        
                        
                 %>
                     <tr>
@@ -40,11 +43,21 @@
                          <%
                         
                     }
+                    
+                    double deliverycharge = 0;
+                    
+                    if(cartprice < 50.00)
+                    {
+                        deliverycharge = 5.0;
+                        
+                        cartprice = cartprice + deliverycharge;
+                    }
+                   
                     %>
                 </table>
                  
                         <p>Total Price: $<%=String.format("%.2f",cartprice)%></p>
-                 
+                        <p>Delivery Charge (if Total Price > 50): $<%=deliverycharge%></p>   
               
                         
        
