@@ -13,7 +13,6 @@ import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.sql.DataSource;
 import org.apache.commons.validator.routines.CreditCardValidator;
-//import org.apache.commons.validator.routines.CreditCardValidator;
 
 /**
  *
@@ -29,7 +28,7 @@ public class CheckOutBean {
         //Validate Credit Card
 
         CreditCardValidator creditCardValidator;
-        creditCardValidator = new CreditCardValidator(CreditCardValidator.VISA + CreditCardValidator.MASTERCARD + CreditCardValidator.AMEX+CreditCardValidator.DINERS);
+        creditCardValidator = new CreditCardValidator(CreditCardValidator.VISA + CreditCardValidator.MASTERCARD + CreditCardValidator.AMEX + CreditCardValidator.DINERS);
 
         if (creditCardValidator.isValid(creditcard)) {
             return true;
